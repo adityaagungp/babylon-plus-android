@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/icons"
+    android:padding="@dimen/padding_medium"
+    tools:context="com.aditya.babylonplus.user.UserDetailsActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/avatar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/LargeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/padding_small"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:layout_marginRight="@dimen/padding_small"
+        android:layout_marginStart="@dimen/padding_small"
+        android:layout_marginTop="@dimen/padding_medium"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/avatar"/>
+
+    <TextView
+        android:id="@+id/personalInfo"
+        style="@style/HeadingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_medium"
+        android:text="@string/personal_info"
+        app:layout_constraintTop_toBottomOf="@id/name"/>
+
+    <TextView
+        android:id="@+id/emailLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_small"
+        android:text="@string/email_label"
+        app:layout_constraintLeft_toLeftOf="@id/personalInfo"
+        app:layout_constraintTop_toBottomOf="@id/personalInfo"/>
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:layout_marginStart="@dimen/padding_small"
+        app:layout_constraintBaseline_toBaselineOf="@id/emailLabel"
+        app:layout_constraintLeft_toRightOf="@id/emailLabel"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/phoneLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_small"
+        android:text="@string/phone_label"
+        app:layout_constraintLeft_toLeftOf="@id/emailLabel"
+        app:layout_constraintTop_toBottomOf="@id/email"/>
+
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:layout_marginStart="@dimen/padding_small"
+        app:layout_constraintBaseline_toBaselineOf="@id/phoneLabel"
+        app:layout_constraintLeft_toRightOf="@id/phoneLabel"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/websiteLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_small"
+        android:text="@string/website_label"
+        app:layout_constraintLeft_toLeftOf="@id/phoneLabel"
+        app:layout_constraintTop_toBottomOf="@id/phone"/>
+
+    <TextView
+        android:id="@+id/website"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:layout_marginStart="@dimen/padding_small"
+        app:layout_constraintBaseline_toBaselineOf="@id/websiteLabel"
+        app:layout_constraintLeft_toRightOf="@id/websiteLabel"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/address"
+        style="@style/HeadingText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_medium"
+        android:text="@string/address"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/company"
+        app:layout_constraintTop_toBottomOf="@id/website"/>
+
+    <TextView
+        android:id="@+id/company"
+        style="@style/HeadingText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/company"
+        app:layout_constraintLeft_toRightOf="@id/address"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/address"/>
+
+    <TextView
+        android:id="@+id/streetSuite"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_small"
+        app:layout_constraintLeft_toLeftOf="@id/address"
+        app:layout_constraintRight_toLeftOf="@id/company"
+        app:layout_constraintTop_toBottomOf="@id/address"/>
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/streetSuite"
+        app:layout_constraintRight_toLeftOf="@id/company"
+        app:layout_constraintTop_toBottomOf="@id/streetSuite"/>
+
+    <TextView
+        android:id="@+id/zipcode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/city"
+        app:layout_constraintRight_toLeftOf="@id/company"
+        app:layout_constraintTop_toBottomOf="@id/city"/>
+
+    <TextView
+        android:id="@+id/companyName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_small"
+        app:layout_constraintLeft_toLeftOf="@id/company"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/company"/>
+
+    <TextView
+        android:id="@+id/catchPhrase"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/companyName"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/companyName"/>
+</android.support.constraint.ConstraintLayout>

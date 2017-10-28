@@ -1,0 +1,18 @@
+<resources>
+    <string name="address">Address</string>
+    <string name="app_name">BabylonPlus</string>
+    <string name="by">by</string>
+    <string name="company">Company</string>
+    <string name="email_label">Email: </string>
+    <string name="empty_comments">This post has no comment</string>
+    <string name="empty_posts">No posts available for now</string>
+    <string name="empty_users">No users available for now</string>
+    <string name="error_network_general">Oops, something went wrong!</string>
+    <string name="personal_info">Personal Info</string>
+    <string name="post_thumbnail">Thumbnail of post</string>
+    <string name="posts">Posts</string>
+    <string name="phone_label">Phone: </string>
+    <string name="street_suite_placeholder">%1$s Suite %2$s</string>
+    <string name="users">Users</string>
+    <string name="website_label">Website: </string>
+</resources>
