@@ -8,18 +8,18 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AuthorCallbackImpl implements Callback<List<User>> {
+public class AuthorCallback implements Callback<List<User>> {
 
-    private PostDetailPresenter presenter;
+    private PostDetailPresenter mPresenter;
 
-    public AuthorCallbackImpl(PostDetailPresenter postDetailPresenter){
-        presenter = postDetailPresenter;
+    public AuthorCallback(PostDetailPresenter postDetailPresenter){
+        mPresenter = postDetailPresenter;
     }
 
     @Override
     public void onResponse(Call<List<User>> call, Response<List<User>> response) {
         if (response.isSuccessful()){
-            presenter.setAuthor(response.body().get(0));
+            mPresenter.setAuthor(response.body().get(0));
         }
     }
 

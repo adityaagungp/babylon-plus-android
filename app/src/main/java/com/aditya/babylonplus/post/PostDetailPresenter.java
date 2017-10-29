@@ -10,9 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 
 public class PostDetailPresenter {
 
@@ -20,13 +18,13 @@ public class PostDetailPresenter {
     private List<Comment> comments;
     private Post post;
     private User author;
-    private Callback<List<User>> userCallback;
-    private Callback<List<Comment>> commentsCallback;
+    private Callback<List<User>> mAuthorCallback;
+    private Callback<List<Comment>> mCommentsCallback;
 
     public PostDetailPresenter(PostDetailView view) {
         this.view = view;
-        this.userCallback = new AuthorCallbackImpl(this);
-        this.commentsCallback = new CommentsCallback(this);
+        this.mAuthorCallback = new AuthorCallback(this);
+        this.mCommentsCallback = new CommentsCallback(this);
     }
 
     public void setPost(Post post) {
@@ -37,13 +35,13 @@ public class PostDetailPresenter {
     public void onFetchComment(long postId) {
         Map<String, String> params = new HashMap<>();
         params.put("postId", String.valueOf(postId));
-        ApiCaller.getInstance().getComments(params, commentsCallback);
+        ApiCaller.getInstance().getComments(params, mCommentsCallback);
     }
 
     public void onFetchUser(long userId) {
         Map<String, String> params = new HashMap<>();
         params.put("id", String.valueOf(userId));
-        ApiCaller.getInstance().getUsers(params, userCallback);
+        ApiCaller.getInstance().getUsers(params, mAuthorCallback);
     }
 
     public void setAuthor(User user){

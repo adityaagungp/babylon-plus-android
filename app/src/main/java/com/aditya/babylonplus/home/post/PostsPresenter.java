@@ -6,7 +6,9 @@ import java.util.List;
 
 import retrofit2.Callback;
 
-public interface PostsPresenter extends Callback<List<Post>> {
+public interface PostsPresenter {
 
     void fetchPosts();
+    void onSuccessLoadingPosts(List<Post> posts);
+    void onFailedLoadingPosts(String message);
 }

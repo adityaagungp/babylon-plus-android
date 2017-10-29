@@ -1,14 +1,13 @@
 package com.aditya.babylonplus.post;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.aditya.babylonplus.R;
@@ -16,6 +15,7 @@ import com.aditya.babylonplus.customview.HeaderPostView;
 import com.aditya.babylonplus.model.object.Comment;
 import com.aditya.babylonplus.model.object.Post;
 import com.aditya.babylonplus.model.object.User;
+import com.aditya.babylonplus.user.UserDetailsActivity;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.List;
@@ -87,16 +87,28 @@ public class PostDetailActivity extends AppCompatActivity implements PostDetailV
     }
 
     @Override
-    public void showAuthor(User user) {
+    public void showAuthor(final User user) {
         if (header == null){
             header = new HeaderPostView(this);
             mAdapter.setHeader(header);
         }
         header.setUser(user);
+        header.setOnAuthorClickedListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toAuthorDetails(user);
+            }
+        });
     }
 
     @Override
     public void onErrorLoadingAuthor() {
 
+    }
+
+    private void toAuthorDetails(User user) {
+        Intent intent = new Intent(this, UserDetailsActivity.class);
+        intent.putExtra("User", user);
+        startActivity(intent);
     }
 }

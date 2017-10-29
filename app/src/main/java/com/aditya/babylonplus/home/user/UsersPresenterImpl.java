@@ -15,38 +15,30 @@ public class UsersPresenterImpl implements UsersPresenter {
 
     private UsersView mView;
     private List<User> mUsers;
+    private UsersCallback mCallback;
 
     public UsersPresenterImpl(UsersView view){
         mView = view;
         mUsers = new ArrayList<>();
+        mCallback = new UsersCallback(this);
     }
 
     @Override
     public void fetchUsers() {
-        ApiCaller.getInstance().getUsers(new HashMap<String, String>(), this);
+        ApiCaller.getInstance().getUsers(new HashMap<String, String>(), mCallback);
     }
 
     @Override
-    public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+    public void onSuccessLoadingUsers(List<User> users) {
         mView.onFinishLoadingUsers();
-        if (response.isSuccessful()){
-            mUsers = new ArrayList<>();
-            mUsers.addAll(response.body());
-            mView.showUsers(mUsers);
-        } else {
-            String errorMessage = "";
-            try {
-                errorMessage = response.errorBody().string();
-            } catch (IOException e) {
-                errorMessage = null;
-            }
-            mView.onErrorLoadingUsers(errorMessage);
-        }
+        mUsers = new ArrayList<>();
+        mUsers.addAll(users);
+        mView.showUsers(mUsers);
     }
 
     @Override
-    public void onFailure(Call<List<User>> call, Throwable t) {
+    public void onFailedLoadingUsers(String message) {
         mView.onFinishLoadingUsers();
-        mView.onErrorLoadingUsers(t.getMessage());
+        mView.onErrorLoadingUsers(message);
     }
 }

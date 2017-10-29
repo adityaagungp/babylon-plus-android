@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/icons"
-    android:padding="16dp">
+    android:padding="@dimen/padding_medium">
 
     <TextView
         android:id="@+id/postTitle"
         style="@style/LargeText"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/by"
@@ -21,7 +21,7 @@
         android:layout_marginTop="0dp"
         android:text="@string/by"
         app:layout_constraintLeft_toLeftOf="@id/postTitle"
-        app:layout_constraintTop_toBottomOf="@id/postTitle" />
+        app:layout_constraintTop_toBottomOf="@id/postTitle"/>
 
     <TextView
         android:id="@+id/authorName"
@@ -32,7 +32,7 @@
         android:layout_marginStart="@dimen/padding_small"
         android:layout_marginTop="0dp"
         app:layout_constraintLeft_toRightOf="@id/by"
-        app:layout_constraintTop_toBottomOf="@id/postTitle" />
+        app:layout_constraintTop_toBottomOf="@id/postTitle"/>
 
     <TextView
         android:id="@+id/body"
@@ -41,5 +41,5 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_medium"
         app:layout_constraintLeft_toLeftOf="@+id/by"
-        app:layout_constraintTop_toBottomOf="@+id/authorName" />
+        app:layout_constraintTop_toBottomOf="@+id/authorName"/>
 </android.support.constraint.ConstraintLayout>

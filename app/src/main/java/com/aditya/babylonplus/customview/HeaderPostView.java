@@ -38,4 +38,8 @@ public class HeaderPostView extends ConstraintLayout {
     public void setUser(User user){
         authorName.setText(user.getName());
     }
+
+    public void setOnAuthorClickedListener(OnClickListener listener) {
+        authorName.setOnClickListener(listener);
+    }
 }

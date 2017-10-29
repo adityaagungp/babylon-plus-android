@@ -4,9 +4,9 @@ import com.aditya.babylonplus.model.object.User;
 
 import java.util.List;
 
-import retrofit2.Callback;
-
-public interface UsersPresenter extends Callback<List<User>> {
+public interface UsersPresenter {
 
     void fetchUsers();
+    void onSuccessLoadingUsers(List<User> users);
+    void onFailedLoadingUsers(String message);
 }
